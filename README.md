@@ -21,17 +21,21 @@
 ## Chapter I
 ## Instructions
 
-1. Throughout the course, you will experience a sense of uncertainty and a sharp lack of information — this is normal. Don’t forget that the information in the repository and Google is always at your side. Just like your peers and Rocket.Chat. Communicate. Search. Use common sense. Don’t be afraid to make mistakes.
-2. Be careful with your sources. Verify. Think. Analyze. Compare.
-3. Read the tasks attentively. Read them several times.
-4. It's also better to read the examples attentively. They may contain things that are not explicitly stated in the task itself.
-5. You may come across inconsistencies — when something in the task conditions or example contradicts what you already know. If that happens — try to figure it out. If you can’t — write your question in the open questions and clarify it during the process. Don’t leave open questions unresolved.
-6. If a task seems unclear or unachievable — it only seems so. Try breaking it down. Most parts will likely become understandable.
-7. On your way you’ll encounter various types of tasks. Bonus tasks are for the most meticulous and curious. These tasks are more difficult and optional, but if you complete them, you will gain extra experience and knowledge.
-8. Don’t try to trick the system or those around you. You’ll only be deceiving yourself.
-9. Got a question? Ask your neighbor to the right. If that doesn’t help — ask the one to the left.
-10. When using help — always make sure you understand the why, how, and what for. Otherwise, the help won’t be meaningful.
-11. Always push only to the develop branch! The master branch will be ignored. Work in the src directory.
+How to learn at “School 21”:
+
+- Here, you’ll find a unique learning experience with a lot of freedom. You’re given a task and left to find your own way to solve it, using whatever resources work best for you — whether that’s the Internet or AI tools like GigaChat. Just be mindful of information quality: verify, think critically, analyze, and compare.
+- Peer-to-peer (P2P) learning is the exchange of knowledge and experience with peers, where everyone acts as both mentor and student. This approach allows you to gain a deeper understanding of the material by learning from one another.
+- Feel free to ask for help: around you are peers who are also navigating this path for the first time. Share your own experience and ideas with others.  Join Rocket.Chat to stay updated with the latest community announcements. 
+- Your learning is meaningless if you just copy someone else’s solutions. When receiving help from others, always make sure you fully understand the “why”, “how”, and “purpose” behind the solution. Don’t be afraid to make mistakes. 
+- Does the task seem impossible? Take a break, get some fresh air and clear your mind — this has helped many people. Maybe after that, the solution will come to you naturally.
+- The learning process is just as important as the result. It’s not just about completing the task — it’s about understanding HOW to solve it. 
+
+How to work with the project:
+
+- Before starting, clone the project from GitLab into a repository with the same name.
+- All files should be created inside the _src/_ folder of the cloned repository.
+- After cloning the project, create a _develop_ branch and do all your development there. Then, push the _develop_ branch to GitLab.
+- Your directory should not contain any files other than those specified in the assignments.
 
 ## Chapter II
 ### General Information
