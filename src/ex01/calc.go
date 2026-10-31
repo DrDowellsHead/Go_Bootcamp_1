@@ -1,24 +1,63 @@
-package ex01
+package main
 
 import (
-	"fmt"
-	"strconv"
+    "fmt"
+    "io"
+    "os"
+    "strconv"
 )
 
-func calc() {
-	var left_operand string
-	
-	for {
-		fmt.Println("Введите левый операнд: ")
-		fmt.Scan(&left_operand)
-		left_operand = strconv.ParseFloat(left_operand string, 64)
-			if err != nil {
-				fmt.Println("Invalid input", err)
-				continue
-			} else {
-				break
-			}
-		}
+func getFloatInput(prompt string) float64 {
+    for {
+        fmt.Print(prompt)
 
-	fmt.Println(&left_operand)
+        var input string
+
+        _, err := fmt.Scanln(&input)
+
+        if err == io.EOF {
+            fmt.Println()
+            os.Exit(0)
+        }
+
+        if err != nil {
+            fmt.Println("Invalid input")
+            continue
+        }
+
+        value, err := strconv.ParseFloat(input, 64)
+
+        if err == nil {
+            return value
+        }
+
+        fmt.Println("Invalid input")
+    }
+}
+
+func getOperationInput(prompt string) string {
+    for {
+        fmt.Print(prompt)
+
+        var input string
+
+        _, err := fmt.Scanln(&input)
+
+        if err == io.EOF {
+            fmt.Println()
+            os.Exit(0)
+        }
+
+        if err != nil {
+            fmt.Println("Invalid input")
+            continue
+        }
+
+        if input == "+" || input == "-" ||
+            input == "*" || input == "/" {
+            return input
+        }
+
+        fmt.Println("Invalid input")
+    }
 }
