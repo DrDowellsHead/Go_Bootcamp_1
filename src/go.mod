@@ -1,3 +1,3 @@
 module go_bootcamp
 
-go 1.27.3
+go 1.22.0

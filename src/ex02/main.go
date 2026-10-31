@@ -1,30 +1,38 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "os"
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
-    scanner := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Buffer(make([]byte, 64*1024), 10*1024*1024)
 
-    if !scanner.Scan() {
-        return
-    }
-    words := scanner.Text()
+	if !scanner.Scan() {
+		if scanner.Err() != nil {
+			fmt.Println("Invalid input")
+		}
+		return
+	}
+	words := scanner.Text()
+	if strings.TrimSpace(words) == "" {
+		fmt.Println()
+		return
+	}
 
-    if !scanner.Scan() {
-        return
-    }
+	if !scanner.Scan() {
+		fmt.Println("Invalid input")
+		return
+	}
+	k, err := strconv.Atoi(strings.TrimSpace(scanner.Text()))
+	if err != nil || k < 0 {
+		fmt.Println("Invalid input")
+		return
+	}
 
-    var k int
-    _, err := fmt.Sscan(scanner.Text(), &k)
-
-    if err != nil || k < 0 {
-        fmt.Println("Invalid input")
-        return
-    }
-
-    fmt.Println(TopKFrequent(words, k))
+	fmt.Println(TopKFrequent(words, k))
 }
