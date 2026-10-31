@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// Несколько визитов одного пациента должны сохраняться в порядке добавления.
 func TestSaveAndHistory(t *testing.T) {
 	journal := NewJournal()
 	if err := journal.Save("Иванов Иван Иванович", "ортопед", "2024-04-13"); err != nil {
@@ -24,6 +25,7 @@ func TestSaveAndHistory(t *testing.T) {
 	}
 }
 
+// Последняя дата определяется по календарю, не по порядку вызовов Save.
 func TestGetLastVisit(t *testing.T) {
 	journal := NewJournal()
 	for _, date := range []string{"2024-05-20", "2023-11-10", "2024-06-01", "2024-05-01"} {
@@ -40,6 +42,7 @@ func TestGetLastVisit(t *testing.T) {
 	}
 }
 
+// Проверяем и текст ошибки, и конкретный тип — этого требует README.
 func TestPatientNotFoundError(t *testing.T) {
 	journal := NewJournal()
 	_, err := journal.GetHistory("Неизвестный")
@@ -66,6 +69,7 @@ func TestMissingSpecialty(t *testing.T) {
 	}
 }
 
+// Ошибка не должна приводить к частичному сохранению данных.
 func TestInvalidVisitData(t *testing.T) {
 	tests := []struct{ name, specialty, date string }{
 		{"", "ортопед", "2024-01-01"},
@@ -96,6 +100,7 @@ func TestLeapYear(t *testing.T) {
 	}
 }
 
+// Полученную копию истории можно менять без изменения исходного журнала.
 func TestHistoryIsCopy(t *testing.T) {
 	journal := NewJournal()
 	if err := journal.Save("Иванов", "ортопед", "2024-01-01"); err != nil {
@@ -129,6 +134,7 @@ func TestPatientIsolation(t *testing.T) {
 	}
 }
 
+// Проверяем цепочки команд через реальный stdin/stdout программы.
 func TestConsoleInputOutput(t *testing.T) {
 	binary := filepath.Join(t.TempDir(), "ex04")
 	if runtime.GOOS == "windows" {

@@ -16,6 +16,7 @@ func main() {
 		fmt.Println("Invalid input")
 		return
 	}
+	// Scanner вернул строку, а parseNumbers проверяет и превращает её в []int.
 	first, err := parseNumbers(scanner.Text())
 	if err != nil {
 		fmt.Println("Invalid input")
@@ -32,12 +33,15 @@ func main() {
 		return
 	}
 
+	// Пересечение уже сохраняет порядок первого списка — сортировать ничего не нужно.
 	common := intersection(first, second)
 	if len(common) == 0 {
 		fmt.Println("Empty intersection")
 		return
 	}
 
+	// fmt.Println(common) добавил бы квадратные скобки.
+	// Поэтому переводим числа в строки через Itoa и собираем их через Join.
 	result := make([]string, len(common))
 	for i, number := range common {
 		result[i] = strconv.Itoa(number)

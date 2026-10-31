@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// Тут проверяется сам алгоритм, без чтения из консоли.
 func TestTopKFrequent(t *testing.T) {
 	tests := []struct {
 		name, words string
@@ -40,11 +41,14 @@ func TestTopKFrequent(t *testing.T) {
 	}
 }
 
+// А здесь уже собираем и запускаем всю программу.
+// Так ловим ошибки main, которые вызовом TopKFrequent не обнаружить.
 func TestConsoleInputOutput(t *testing.T) {
 	binary := filepath.Join(t.TempDir(), "ex02")
 	if runtime.GOOS == "windows" {
 		binary += ".exe"
 	}
+	// Собираем бинарник один раз для всех вариантов ввода.
 	cmd := exec.Command("go", "build", "-o", binary, ".")
 	if output, err := cmd.CombinedOutput(); err != nil {
 		t.Fatalf("go build failed: %v\n%s", err, output)
@@ -71,6 +75,7 @@ func TestConsoleInputOutput(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			cmd := exec.Command(binary)
+			// Подменяем стандартный ввод данными конкретного теста.
 			cmd.Stdin = strings.NewReader(tt.input)
 			output, err := cmd.CombinedOutput()
 			if err != nil {

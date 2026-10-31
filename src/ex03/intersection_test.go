@@ -9,6 +9,7 @@ import (
 	"testing"
 )
 
+// Проверяем порядок, повторы, пустые списки и отрицательные числа.
 func TestIntersection(t *testing.T) {
 	tests := []struct {
 		name   string
@@ -38,6 +39,7 @@ func TestIntersection(t *testing.T) {
 	}
 }
 
+// Ошибки преобразования проверяем отдельно от поиска пересечения.
 func TestParseNumbers(t *testing.T) {
 	tests := []struct {
 		line string
@@ -65,6 +67,7 @@ func TestParseNumbers(t *testing.T) {
 	}
 }
 
+// Здесь проверяем реальный stdout готовой программы, включая формат вывода.
 func TestConsoleInputOutput(t *testing.T) {
 	binary := filepath.Join(t.TempDir(), "ex03")
 	if runtime.GOOS == "windows" {
